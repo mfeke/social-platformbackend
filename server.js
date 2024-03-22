@@ -3,6 +3,7 @@ const express = require("express")
 const app = express ()
 const cors = require("cors")
 const userRouter = require("./routes/user.routes")
+const postRouter = require("./routes/post.routes")
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
@@ -36,8 +37,8 @@ app.get("/" , (req , res) =>{
      process.exit();
    });
 
- // Adjust the path as needed
    app.use('/api/auth', userRouter)
+   app.use('/api/post', postRouter)
 
 app.listen(PORT, ()=> {
     console.log(`Server running at port:${PORT}`)
