@@ -6,15 +6,14 @@ const config = require("../db/auth.config")
 const  User = db.user;
 
 exports.signup = (req, res) => {
-  const { firstname, lastname, email, password } = req.body;
+  const { fullname, email, password } = req.body;
 
-  const hashedPassword = bcrypt.hashSync(password, 8); // Hash the password
+  const hashedPassword = bcrypt.hashSync(password, 8);
 
   const user = new User({
-    firstname,
-    lastname,
+    fullname,
     email,
-    password: hashedPassword // Store the hashed password in the database
+    password: hashedPassword 
   });
   user.save((err, data) => {
     if (err) {

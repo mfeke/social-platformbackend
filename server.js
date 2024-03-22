@@ -16,11 +16,9 @@ app.get("/" , (req , res) =>{
 })
  const PORT = 2022
  // Cross Orign Resource sharing
- var corsOptions = {
-   origin: "http://localhost:8081/"
- };
 
- app.use(cors(corsOptions));
+
+ app.use(cors());
 
  const db = require("./models");
   db.mongoose.set('strictQuery', true);
