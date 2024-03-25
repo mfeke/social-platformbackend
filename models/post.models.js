@@ -5,8 +5,8 @@ const postSchema = mongoose.model(
   new mongoose.Schema({
     postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     fullname:String,
-    content: String,
-    like:Number,
+    text:String,
+    image: String,
     createdAt: { type: Date, default: Date.now },
   })
 
